@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <marquee  direction="left to right">Welcome To Signup Page</marquee>
+    <br>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+   
+    <h1><u> Signup </u></h1>
+
+    <form action="/signup" method="post">
+    {% csrf_token %}
+        <label for=""> Username:</label>
+        <input type="text" id="Username" name="username" placeholder="Create Username (only latters and  numbers)" required>
+        <br>
+        <br>
+
+        <label for=""> First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter the First Name " required>
+        <br>
+        <br>
+
+        <label for=""> Last Name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter the Last Name " required>
+        <br>
+        <br>
+
+        <label for=""> Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter the Email Address " required>
+        <br>
+        <br>
+
+        <label for=""> Password:</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Create your password" required>
+        <br>
+        <br>
+
+        <label for=""> Conform Password:</label>
+        <input type="password" id="pass2" name="pass2" placeholder="Conform password" required>
+        <br>
+        <br>
+
+        <button type="submit">Sign up</button>
+
+    </form>
+</body>
+</html>
